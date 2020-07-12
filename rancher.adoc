@@ -1,0 +1,28 @@
+
+----
+VERSION="2.2.9"
+sudo dnf -y install https://releases.hashicorp.com/vagrant/${VERSION}/vagrant_${VERSION}_x86_64.rpm
+git clone https://github.com/rancher/quickstart
+----
+
+----
+https://172.22.101.101/
+----
+
+----
+DO NOT use cluster-wide bearer token (leave "scope" to the default value "no scope" when creating the token)
+./rancher login https://172.22.101.101/ --token <token>
+----
+
+----
+./rancher kubectl get ev
+LAST SEEN   TYPE     REASON                    OBJECT         MESSAGE
+40m         Normal   Starting                  node/node-01   Starting kubelet.
+40m         Normal   NodeHasSufficientMemory   node/node-01   Node node-01 status is now: NodeHasSufficientMemory
+40m         Normal   NodeHasNoDiskPressure     node/node-01   Node node-01 status is now: NodeHasNoDiskPressure
+40m         Normal   NodeHasSufficientPID      node/node-01   Node node-01 status is now: NodeHasSufficientPID
+40m         Normal   NodeAllocatableEnforced   node/node-01   Updated Node Allocatable limit across pods
+39m         Normal   RegisteredNode            node/node-01   Node node-01 event: Registered Node node-01 in Controller
+39m         Normal   Starting                  node/node-01   Starting kube-proxy.
+39m         Normal   NodeReady                 node/node-01   Node node-01 status is now: NodeReady
+----
